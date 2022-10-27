@@ -1,0 +1,67 @@
+<div class="container" style="width: 80%">
+  <h1>Hola!</h1>
+  <p>
+    A continuación de enumeran una serie de actividades que tienen como propósito medir tu grado de HABILIDAD para la
+    ejecución de las mismas. Al contestar los reactivos, ten presente que no se busca que te gusten esas actividades, ni
+    pienses si deberias tener determinada habilidad. Solo se te pide que contestes que tan hábilmente crees poder
+    realizar la actividad citada, mas allá de tus gustos o valores. Esta prueba no exige tiempo determinado, por lo que
+    puedes meditar y reflexionar tus respuestas. Para tener información precisa en la elección de tu carrera es
+    necesario que contestes de manera honesta, sin menospreciarte o sobreestimarte. Si alguna actividad no has tenido
+    alguna experiencia, piensa que tan bien la realizarias si fuera necesario. MUCHAS GRACIAS POR TU ATENCIÓN.
+  </p>
+
+  <h1>Instrucciones: A contunuación te presentamos una serie de actividades calificalas de acuerdo con tu grado de
+    habilidad de acuerdo a la siguiente escala:
+  </h1>
+  <div class="text-center">
+    <h3>5.- DEMASIADO HÁBIL
+    </h3>
+    <h3>4.- MUY HÁBIL
+    </h3>
+    <h3>3.-MEDIANAMENTE HÁBIL
+    </h3>
+    <h3>2.- POCO HÁBIL
+    </h3>
+    <h3>1. NADA HÁBIL
+    </h3>
+  </div>
+
+  <form action="" [formGroup]="form" (ngSubmit)="print()">
+    <table class="table table-bordered">
+      <thead>
+      <tr class="text-center">
+        <th style="width: 50%">APTITUD</th>
+        <th style="width: 50%">Calificación</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of rows | paginator:page_size:page_number">
+        <td>{{ row.aptitud }}</td>
+        <td>
+          <mat-radio-group formControlName="options-{{row.id}}">
+            <mat-radio-button value="1">1</mat-radio-button>
+            <mat-radio-button value="2">2</mat-radio-button>
+            <mat-radio-button value="3">3</mat-radio-button>
+            <mat-radio-button value="4">4</mat-radio-button>
+            <mat-radio-button value="5">5</mat-radio-button>
+          </mat-radio-group>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="rows.length"
+                   [pageSize]="page_size"
+                   [pageSizeOptions]="[10, 25, 100]"
+                   aria-label="Select page"
+                   (page)="handlePage($event)">
+    </mat-paginator>
+    <div class="col-12" style="text-align: right">
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Enviar datos</button>
+    </div>
+  </form>
+
+</div>
+
+<div class="footer">
+  &nbsp;
+</div>
