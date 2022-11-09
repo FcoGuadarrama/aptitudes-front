@@ -1,0 +1,93 @@
+<div class="container" *ngIf="!results">
+  <div class="container" *ngIf="!isRegistered">
+    <div class="row mt-5">
+      <div class="col-sm-10 col-md-10 col-lg-10 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Registrarse</h5>
+            <form [formGroup]="registerForm" (ngSubmit)="getSignIn()">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control {{ name.invalid && (name.dirty || name.touched) ? 'error' : ''  }}"
+                           id="name" formControlName="name" name="name"
+                           placeholder="Nombre" required>
+                    <label>Nombre: </label>
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                      <div *ngIf="name.errors?.['required']">
+                        <span style="color: red">*El nombre es requerido</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control {{ lastname.invalid && (lastname.dirty || lastname.touched) ? 'error' : ''  }}"
+                           id="lastname" formControlName="lastname"
+                           placeholder="Apellido" required>
+                    <label>Apellido(s): </label>
+                    <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+                      <div *ngIf="lastname.errors?.['required']">
+                        <span style="color: red">*El apellido es requerido</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control {{ email.invalid && (email.dirty || email.touched) ? 'error' : ''  }}"
+                           formControlName="email" name="email" id="email"
+                           placeholder="email@ejemplo.com " required>
+                    <label>Email: </label>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                      <div *ngIf="email.errors?.['required']">
+                        <span style="color: red">*El correo es requerido</span>
+                      </div>
+                      <div *ngIf="email.errors?.['email']">
+                        <span style="color: red">*El correo es incorrecto</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                  <div class="form-floating mb-3">
+                    <input type="number" min="0" max="100" class="form-control {{ age.invalid && (age.dirty || age.touched) ? 'error' : ''  }}"
+                           id="age" formControlName="age"
+                           placeholder="Edad" required>
+                    <label>Edad: </label>
+                    <div *ngIf="age.invalid && (age.dirty || age.touched)">
+                      <div *ngIf="age.errors?.['required']">
+                        <span style="color: red">*La edad es requerida</span>
+                      </div>
+                      <div *ngIf="age.errors?.['min']">
+                        <span style="color: red">*La edad tiene que ser mayor a uno.</span>
+                      </div>
+                      <div *ngIf="age.errors?.['max']">
+                        <span style="color: red">*La edad tiene que ser menor a 100.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-4 ">
+              <div class="d-grid ">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" [disabled]="!registerForm.valid"
+                        type="submit">Entrar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-autoeval *ngIf="isRegistered" (getResults)="getResults($event)" [person]="registerForm.value"></app-autoeval>
+
+</div>
+
+<div class="container" *ngIf="results">
+  <app-results [results]="results"></app-results>
+</div>

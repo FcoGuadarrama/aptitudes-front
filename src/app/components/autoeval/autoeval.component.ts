@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import {AptitudesService} from "../../services/aptitudes-service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PageEvent} from "@angular/material/paginator";
+import {HttpService} from "../../services/http.service";
 
 @Component({
   selector: 'app-autoeval',
@@ -15,10 +16,13 @@ export class AutoevalComponent implements OnInit {
   page_size: any;
   page_number: any;
   results: any;
+  @Input() person: any;
+  @Output() getResults = new EventEmitter<[]>();
 
   constructor(
     private _router: Router,
     private aptitudesService: AptitudesService,
+    private http: HttpService,
   ) { }
 
   form = new FormGroup({});
@@ -27,7 +31,7 @@ export class AutoevalComponent implements OnInit {
     this.rows = this.aptitudesService.getAptitudes();
 
     for (let i = 1; i <= this.rows.length; i++){
-      this.form.addControl('options-' + i.toString(), new FormControl('', Validators.required))
+      this.form.addControl(i.toString(), new FormControl('', Validators.required))
     }
   }
 
@@ -38,8 +42,9 @@ export class AutoevalComponent implements OnInit {
 
   print(){
     // @ts-ignore
-    let array = Object.values(this.form.value).filter(obj => obj > 0);
-    this._router.navigate(['/results', array]);
+    this.http.sendData(this.form.value, this.person).subscribe((res) => {
+      this.getResults.emit(res);
+    });
   }
 
 }

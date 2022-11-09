@@ -38,7 +38,7 @@
       <tr *ngFor="let row of rows | paginator:page_size:page_number">
         <td>{{ row.aptitud }}</td>
         <td>
-          <mat-radio-group formControlName="options-{{row.id}}">
+          <mat-radio-group formControlName="{{row.id}}">
             <mat-radio-button value="1">1</mat-radio-button>
             <mat-radio-button value="2">2</mat-radio-button>
             <mat-radio-button value="3">3</mat-radio-button>
@@ -60,8 +60,4 @@
     </div>
   </form>
 
-</div>
-
-<div class="footer">
-  &nbsp;
 </div>
