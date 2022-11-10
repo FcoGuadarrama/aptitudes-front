@@ -22,6 +22,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -34,22 +35,23 @@ import {MatButtonModule} from "@angular/material/button";
     LoginComponent,
     DashboardComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatPaginatorModule,
-    MatRadioModule,
-    HttpClientModule,
-    FormsModule,
-    MatGridListModule,
-    MatCardModule,
-    MatIconModule,
-    MatMenuModule,
-    MatTableModule,
-    MatButtonModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MatPaginatorModule,
+        MatRadioModule,
+        HttpClientModule,
+        FormsModule,
+        MatGridListModule,
+        MatCardModule,
+        MatIconModule,
+        MatMenuModule,
+        MatTableModule,
+        MatButtonModule,
+        MatToolbarModule,
+    ],
   providers: [
     AptitudesService
   ],

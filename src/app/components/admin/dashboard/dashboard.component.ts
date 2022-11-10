@@ -13,13 +13,22 @@ import {first} from "rxjs";
 })
 export class DashboardComponent implements OnInit {
   dataSource: MatTableDataSource<Aspirante> | any;
-  displayedColumns: string[] = ['id', 'name', 'email', 'age',  'results', 'created_at'];
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'email',
+    'age',
+    'control_number',
+    'career',
+    'semester',
+    'results',
+    'created_at'
+  ];
   results: Aspirante[] | any;
   apiUrl = environment.apiUrl;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
 
-  aspirantes: Aspirante | any;
   data: any;
 
   constructor(public http: HttpService) { }

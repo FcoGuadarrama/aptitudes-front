@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Chart, registerables} from "chart.js";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-results',
@@ -8,7 +9,10 @@ import {Chart, registerables} from "chart.js";
 })
 export class ResultsComponent implements OnInit {
   @Input() results: any;
+  @Input() registered_aspirante: any;
   public chart: any;
+  apiUrl = environment.apiUrl;
+
 
   constructor() {
     Chart.register(...registerables);
@@ -53,5 +57,7 @@ export class ResultsComponent implements OnInit {
     });
   }
 
-
+  holaaa(){
+    console.log(this.registered_aspirante);
+  }
 }
