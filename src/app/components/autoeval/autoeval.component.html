@@ -1,5 +1,5 @@
 <div class="container" style="width: 80%">
-  <h1>Hola!, {{ person.name }} {{ person.lastname }}</h1>
+  <h1>Hola!  {{ person.name }} {{ person.lastname }}</h1>
   <p>
     A continuación de enumeran una serie de actividades que tienen como propósito medir tu grado de HABILIDAD para la
     ejecución de las mismas. Al contestar los reactivos, ten presente que no se busca que te gusten esas actividades, ni
@@ -10,20 +10,18 @@
     alguna experiencia, piensa que tan bien la realizarias si fuera necesario. MUCHAS GRACIAS POR TU ATENCIÓN.
   </p> 
 
-  <h1>Instrucciones: A continuación te presentamos una serie de actividades calificalas de acuerdo con tu grado de
+  <h3>Instrucciones: A continuación te presentamos una serie de actividades calificalas de acuerdo con tu grado de
     habilidad de acuerdo a la siguiente escala:
-  </h1>
-  <div class="text-center">
-    <h3>5.- DEMASIADO HÁBIL
-    </h3>
-    <h3>4.- MUY HÁBIL
-    </h3>
-    <h3>3.-MEDIANAMENTE HÁBIL
-    </h3>
-    <h3>2.- POCO HÁBIL
-    </h3>
-    <h3>1. NADA HÁBIL
-    </h3>
+  </h3>
+  <div class="text-left">
+    <p>
+      5.- DEMASIADO HÁBIL <br>
+      4.- MUY HÁBIL <br>
+      3.- MEDIANAMENTE HÁBIL <br>
+      2.- POCO HÁBIL <br>
+      1.- NADA HÁBIL <br>
+    
+    </p>
   </div>
 
   <form action="" [formGroup]="form" (ngSubmit)="print()">
