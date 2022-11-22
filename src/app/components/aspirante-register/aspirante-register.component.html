@@ -114,6 +114,34 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                  <div class="form-floating mb-3">
+                    <select class="form-select  {{ current_career.invalid && (current_career.dirty || current_career.touched) ? 'error' : ''  }}" formControlName="current_career">
+                      <option [value]="item" *ngFor="let item of careers">{{ item }}</option>
+                    </select>
+                    <label>Carrera Cursando</label>
+                    <div *ngIf="current_career.invalid && (current_career.dirty || current_career.touched)">
+                      <div *ngIf="current_career.errors?.['required']">
+                        <span style="color: red">*El campo es requerido</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                  <div class="form-floating mb-3">
+                    <select class="form-select  {{ requested_career.invalid && (requested_career.dirty || requested_career.touched) ? 'error' : ''  }}" formControlName="requested_career">
+                      <option [value]="item" *ngFor="let item of careers">{{ item }}</option>
+                    </select>
+                    <label>Carrera Solicitada</label>
+                    <div *ngIf="requested_career.invalid && (requested_career.dirty || requested_career.touched)">
+                      <div *ngIf="requested_career.errors?.['required']">
+                        <span style="color: red">*El campo es requerido</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <hr class="my-4 ">
               <div class="d-grid ">
                 <button class="btn btn-primary btn-login text-uppercase fw-bold" [disabled]="!registerForm.valid"
