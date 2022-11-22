@@ -1,0 +1,11 @@
+.logo{
+    background-image: url("../../../assets/itp.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    padding: 2rem;
+    justify-content: space-between;
+    margin: 0 auto;
+}

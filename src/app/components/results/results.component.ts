@@ -26,8 +26,8 @@ export class ResultsComponent implements OnInit {
     this.chart = new Chart("MyChart", {
       type: 'bar', //this denotes tha type of chart
       data: {// values on X-Axis
-        labels: ['abstracta', 'coord. Visio', 'numérica', 'verbal', 'persuasiva', 'mecánica', 'social', 'directiva',
-          'organización', 'musical', 'a.plástico', 'espacial'],
+        labels: ['Abstracta', 'Coord. Visio', 'Numérica', 'Verbal', 'Persuasiva', 'Mecánica', 'Social', 'Directiva',
+          'Organización', 'Musical', 'A.Plástico', 'Espacial'],
         datasets: [
           {
             label: "Puntaje",

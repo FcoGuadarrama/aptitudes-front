@@ -1,4 +1,6 @@
+<section class="logo"></section>
 <div class="container" *ngIf="!results">
+  
   <div class="container" *ngIf="!isRegistered">
     <div class="row mt-5">
       <div class="col-sm-8 col-md-8 col-lg-8 mx-auto">
@@ -12,7 +14,7 @@
                     <input type="text" class="form-control {{ name.invalid && (name.dirty || name.touched) ? 'error' : ''  }}"
                            id="name" formControlName="name" name="name"
                            placeholder="Nombre" required>
-                    <label>Nombre: </label>
+                    <label>Nombre(s): </label>
                     <div *ngIf="name.invalid && (name.dirty || name.touched)">
                       <div *ngIf="name.errors?.['required']">
                         <span style="color: red">*El nombre es requerido</span>
@@ -77,30 +79,18 @@
                     <input type="text" min="0" max="100" class="form-control {{ control_number.invalid && (control_number.dirty || control_number.touched) ? 'error' : ''  }}"
                            id="control_number" formControlName="control_number"
                            placeholder="Numero de control" required>
-                    <label>Numero de control: </label>
+                    <label>Número de control: </label>
                     <div *ngIf="control_number.invalid && (control_number.dirty || control_number.touched)">
                       <div *ngIf="control_number.errors?.['required']">
-                        <span style="color: red">*Numero de control es requerido</span>
+                        <span style="color: red">*Número de control es requerido</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                  <div class="form-floating mb-3">
-                    <input type="text" min="0" max="100" class="form-control {{ career.invalid && (career.dirty || career.touched) ? 'error' : ''  }}"
-                           id="career" formControlName="career"
-                           placeholder="Carrera" required>
-                    <label>Carrera: </label>
-                    <div *ngIf="career.invalid && (career.dirty || career.touched)">
-                      <div *ngIf="career.errors?.['required']">
-                        <span style="color: red">*Carrera es requerida</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-xs-12">
+                
+                <div class="col-lg-12 col-md-12 col-xs-12">
                   <div class="form-floating mb-3">
                     <input type="text" min="0" max="100" class="form-control {{ semester.invalid && (semester.dirty || semester.touched) ? 'error' : ''  }}"
                            id="semester" formControlName="semester"
